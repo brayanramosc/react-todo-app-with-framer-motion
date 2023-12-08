@@ -12,6 +12,21 @@ const initialState = {
       id: 'b967afe24b23'
     },
     {
+      text: 'Task',
+      completed: true,
+      id: 'b6df51v6d'
+    },
+    {
+      text: 'New task',
+      completed: false,
+      id: 'csd1d65as1d65f'
+    },
+    {
+      text: 'La donna e mobile',
+      completed: true,
+      id: 'cdsf4s684feedfef'
+    },
+    {
       text: 'Context',
       completed: true,
       id: 'b967afe24a13'
