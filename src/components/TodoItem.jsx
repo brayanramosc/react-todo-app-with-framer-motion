@@ -2,24 +2,8 @@ import React, { useState } from 'react'
 import classnames from 'classnames'
 import { TodoTextInput } from './TodoTextInput'
 import { useTodo } from '../useTodo'
-import { motion } from 'framer-motion'
 
-const el_costo_de_framer_motion = 0
-
-const variants = {
-  hidden: {
-    opacity: 0
-  },
-  visible: ({ delay }) => ({
-    opacity: 1,
-    transition: {
-      delay,
-      duration: 1
-    }
-  })
-}
-
-export const TodoItem = ({ index, todo }) => {
+export const TodoItem = ({ todo }) => {
   const [editing, setEditing] = useState(false)
 
   const dispatch = useTodo()[1]
@@ -61,17 +45,11 @@ export const TodoItem = ({ index, todo }) => {
   }
 
   return (
-    <motion.div
+    <li
       className={classnames({
         completed: todo.completed,
         editing
       })}
-      custom={{ delay: (index + 1) * 0.1 }}
-      initial='hidden'
-      animate='visible'
-      exit='hidden'
-      variants={variants}
-      layoutId={todo.id}
     >
       {editing
         ? (
@@ -90,15 +68,13 @@ export const TodoItem = ({ index, todo }) => {
               onChange={() => completeTodo(todo.id)}
             />
             <label onDoubleClick={handleDoubleClick}>{todo.text}</label>
-            <motion.button
-              whileTap={{ scale: 0.9 }}
-              whileHover={{ cursor: 'pointer', scale: 1.5 }}
+            <button
               type='button'
               className='destroy'
               onClick={() => deleteTodo(todo.id)}
             />
           </div>
           )}
-    </motion.div>
+    </li>
   )
 }

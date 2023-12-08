@@ -57,11 +57,6 @@ export const reducer = (state, action) => {
         todos: [...todos],
         visibilityFilter: action.payload.visibilityFilter
       }
-    case 'SET_TODOS':
-      return {
-        todos: [...action.payload.todos],
-        visibilityFilter
-      }
 
     default:
       return state

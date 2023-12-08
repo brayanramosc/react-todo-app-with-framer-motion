@@ -2,7 +2,6 @@ import React from 'react'
 import { Footer } from './Footer'
 import { TodoList } from './TodoList'
 import { useTodo } from '../useTodo'
-import { motion } from 'framer-motion'
 
 const getCompletedCount = todos =>
   todos.reduce((count, todo) => (todo.completed ? count + 1 : count), 0)
@@ -12,7 +11,7 @@ const MainSection = () => {
   const todosCount = todos.length
   const completedCount = getCompletedCount(todos)
   return (
-    <motion.section layout className='main'>
+    <section className='main'>
       {!!todosCount && (
         <span>
           <input
@@ -28,16 +27,7 @@ const MainSection = () => {
           />
         </span>
       )}
-      <TodoList
-        todos={todos}
-        visibilityFilter={visibilityFilter}
-        setTodos={todos => dispatch({
-          type: 'SET_TODOS',
-          payload: {
-            todos
-          }
-        })}
-      />
+      <TodoList todos={todos} visibilityFilter={visibilityFilter} />
       {!!todosCount && (
         <Footer
           completedCount={completedCount}
@@ -49,7 +39,7 @@ const MainSection = () => {
           }}
         />
       )}
-    </motion.section>
+    </section>
   )
 }
 
