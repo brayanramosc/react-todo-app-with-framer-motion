@@ -27,7 +27,14 @@ const MainSection = () => {
           />
         </span>
       )}
-      <TodoList todos={todos} visibilityFilter={visibilityFilter} />
+      <TodoList
+        todos={todos}
+        visibilityFilter={visibilityFilter}
+        setTodos={todos => dispatch({
+          type: 'SET_TODOS',
+          payload: { todos }
+        })}
+      />
       {!!todosCount && (
         <Footer
           completedCount={completedCount}

@@ -1,6 +1,7 @@
 export const reducer = (state, action) => {
   const { id, text } = action.payload || { id: undefined, text: undefined }
   const { todos, visibilityFilter } = state
+  
   switch (action.type) {
     case 'ADD_TODO':
       return {
@@ -56,6 +57,11 @@ export const reducer = (state, action) => {
       return {
         todos: [...todos],
         visibilityFilter: action.payload.visibilityFilter
+      }
+    case 'SET_TODOS':
+      return {
+        todos: [...action.payload.todos],
+        visibilityFilter
       }
 
     default:

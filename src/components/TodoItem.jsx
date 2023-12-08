@@ -59,7 +59,7 @@ export const TodoItem = ({ index, todo }) => {
   }
 
   return (
-    <motion.li
+    <motion.div
       className={classnames({
         completed: todo.completed,
         editing
@@ -97,6 +97,6 @@ export const TodoItem = ({ index, todo }) => {
             />
           </div>
         )}
-    </motion.li>
+    </motion.div>
   )
 }
